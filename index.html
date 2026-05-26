@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plateforme Financement — Le financement des entreprises ambitieuses, en un seul interlocuteur</title>
+<meta name="description" content="Accédez en 48h aux meilleures solutions de financement du marché. Trésorerie, BFR, croissance, opérations stratégiques — un interlocuteur unique, un réseau de plus de 80 partenaires bancaires et fonds." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#0B1220;
+  --ink-2:#111A2E;
+  --ink-3:#1A2440;
+  --paper:#F6F2EA;
+  --paper-2:#EDE6D8;
+  --line:#2A3454;
+  --line-light:rgba(255,255,255,.08);
+  --gold:#C9A35B;
+  --gold-2:#E2C088;
+  --emerald:#3FB58A;
+  --muted:#8A93A8;
+  --muted-2:#5C6582;
+  --radius:14px;
+  --radius-lg:22px;
+  --shadow-soft:0 1px 0 rgba(255,255,255,.04) inset, 0 30px 80px -30px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-weight:400;
+  color:#E8EBF2;
+  background:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+section{position:relative}
+
+/* ---------- Typography helpers ---------- */
+.serif{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.mono-tag{
+  font-family:'Manrope',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:11px;
+  font-weight:500;
+  color:var(--gold);
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:7px 14px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(255,255,255,.02);
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:#C9D0E0;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 4px rgba(63,181,138,.15)}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(160%) blur(14px);
+  background:rgba(11,18,32,.72);
+  border-bottom:1px solid var(--line-light);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo-mark{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,var(--gold) 0%, #8E6E2D 100%);
+  display:grid;place-items:center;
+  box-shadow:0 8px 24px -8px rgba(201,163,91,.55);
+}
+.logo-mark svg{width:18px;height:18px}
+.logo-wordmark{
+  display:flex;flex-direction:column;line-height:1;
+}
+.logo-wordmark .lw-1{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+  font-size:13px;color:#9AA3BA;letter-spacing:.01em;margin-bottom:3px;
+}
+.logo-wordmark .lw-2{
+  font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:18px;color:#fff;letter-spacing:-.005em;
+}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{color:#C9D0E0;text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:11px 20px;border-radius:10px;
+  font-size:14px;font-weight:600;letter-spacing:.01em;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-ghost{color:#E8EBF2;background:transparent;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:#4A5680}
+.btn-primary{
+  color:#0B1220;
+  background:linear-gradient(180deg, #E8CD93 0%, #C9A35B 100%);
+  box-shadow:0 10px 30px -10px rgba(201,163,91,.55), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 40px -14px rgba(201,163,91,.7), inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-arrow{transition:transform .2s ease}
+.btn:hover .btn-arrow{transform:translateX(3px)}
+
+@media (max-width:880px){.nav-links{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding:80px 0 100px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(900px 500px at 85% 10%, rgba(201,163,91,.13), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(63,181,138,.08), transparent 60%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
+  position:relative;z-index:2;
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(40px, 5.4vw, 76px);
+  line-height:1.02;
+  letter-spacing:-.035em;
+  font-weight:400;
+  color:#fff;
+  margin:24px 0 22px;
+}
+.hero h1 em{
+  font-style:italic;font-weight:300;
+  background:linear-gradient(180deg,#E8CD93,#C9A35B 80%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .lede{
+  font-size:18px;color:#B5BDD0;max-width:560px;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.trust-row{
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  padding-top:28px;border-top:1px solid var(--line-light);
+}
+.trust-row .item{display:flex;align-items:center;gap:10px;font-size:13px;color:#9AA3BA}
+.trust-row svg{width:16px;height:16px;color:var(--emerald);flex-shrink:0}
+
+/* Hero form card */
+.qualifier{
+  position:relative;
+  background:linear-gradient(180deg, rgba(26,36,64,.85) 0%, rgba(17,26,46,.95) 100%);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:30px 30px 26px;
+  box-shadow:var(--shadow-soft);
+  backdrop-filter:blur(8px);
+}
+.qualifier::before{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(180deg, rgba(201,163,91,.35), transparent 40%);
+  -webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);
+  -webkit-mask-composite:xor;mask-composite:exclude;padding:1px;
+}
+.qualifier-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
+.qualifier h3{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:#fff;letter-spacing:-.01em}
+.qualifier .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.q-step{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:600;color:#C9D0E0;margin-bottom:8px;letter-spacing:.02em}
+.field input, .field select{
+  width:100%;padding:14px 16px;
+  background:rgba(11,18,32,.6);
+  border:1px solid var(--line);
+  color:#fff;border-radius:10px;
+  font-family:inherit;font-size:14px;
+  transition:border-color .2s, box-shadow .2s;
+}
+.field input:focus, .field select:focus{
+  outline:none;border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(201,163,91,.15);
+}
+.field select{appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9D0E0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qualifier .btn-primary{width:100%;justify-content:center;padding:15px}
+.qualifier .micro{
+  font-size:11px;color:var(--muted);text-align:center;margin-top:14px;
+}
+.qualifier .micro b{color:#C9D0E0;font-weight:600}
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero{padding:48px 0 70px}
+}
+
+/* ---------- Logo strip ---------- */
+.logos{
+  padding:36px 0;border-top:1px solid var(--line-light);border-bottom:1px solid var(--line-light);
+  background:rgba(255,255,255,.015);
+}
+.logos-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.logos-label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);font-weight:600;white-space:nowrap}
+.logos-list{display:flex;align-items:center;gap:48px;flex-wrap:wrap;opacity:.75}
+.logos-list span{font-family:'Fraunces',serif;font-size:18px;color:#9AA3BA;letter-spacing:.01em;white-space:nowrap}
+
+/* ---------- Section base ---------- */
+.section{padding:120px 0;position:relative}
+.section-head{max-width:760px;margin-bottom:60px}
+.section-head h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(34px, 4vw, 54px);
+  line-height:1.05;letter-spacing:-.025em;font-weight:400;
+  color:#fff;margin:18px 0 18px;
+}
+.section-head h2 em{font-style:italic;color:var(--gold-2);font-weight:300}
+.section-head p{font-size:17px;color:#B5BDD0;max-width:620px}
+
+/* ---------- Solutions ---------- */
+.solutions{background:linear-gradient(180deg, var(--ink) 0%, #0E1626 100%)}
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sol-card{
+  position:relative;
+  padding:32px 28px;
+  background:linear-gradient(180deg, rgba(26,36,64,.5), rgba(17,26,46,.5));
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  transition:transform .3s ease, border-color .3s ease, background .3s ease;
+  overflow:hidden;
+}
+.sol-card:hover{transform:translateY(-4px);border-color:#3A476E}
+.sol-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity:0;transition:opacity .3s;
+}
+.sol-card:hover::before{opacity:.6}
+.sol-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg, rgba(201,163,91,.18), rgba(201,163,91,.04));
+  border:1px solid rgba(201,163,91,.25);
+  display:grid;place-items:center;margin-bottom:22px;
+  color:var(--gold-2);
+}
+.sol-icon svg{width:22px;height:22px}
+.sol-card h3{font-family:'Fraunces',serif;font-size:24px;font-weight:500;color:#fff;letter-spacing:-.01em;margin-bottom:12px}
+.sol-card p{font-size:14.5px;color:#A8B0C5;margin-bottom:20px;line-height:1.6}
+.sol-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sol-tag{
+  font-size:11px;padding:5px 10px;border-radius:6px;
+  background:rgba(201,163,91,.08);border:1px solid rgba(201,163,91,.18);
+  color:var(--gold-2);font-weight:500;
+}
+@media (max-width:900px){.sol-grid{grid-template-columns:1fr}}
+
+/* ---------- Process ---------- */
+.process{background:var(--paper);color:var(--ink)}
+.process .section-head h2{color:var(--ink)}
+.process .section-head h2 em{color:#8E6E2D}
+.process .section-head p{color:#3A4055}
+.process .eyebrow{color:#5C6582;border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.02)}
+.process .mono-tag{color:#8E6E2D}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.step{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:var(--radius-lg);
+  padding:36px 32px;
+  position:relative;
+  box-shadow:0 1px 2px rgba(0,0,0,.03), 0 20px 50px -25px rgba(11,18,32,.18);
+}
+.step-num{
+  font-family:'Fraunces',serif;
+  font-size:64px;font-weight:300;
+  color:#8E6E2D;
+  line-height:1;letter-spacing:-.04em;
+  margin-bottom:20px;font-style:italic;
+}
+.step h3{font-family:'Fraunces',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:10px;letter-spacing:-.01em}
+.step p{font-size:14.5px;color:#4A5266;line-height:1.6}
+.step-meta{
+  margin-top:22px;padding-top:18px;border-top:1px dashed rgba(0,0,0,.1);
+  display:flex;align-items:center;gap:10px;font-size:12px;color:#8E6E2D;font-weight:600;
+}
+.step-meta svg{width:14px;height:14px}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+
+/* ---------- Stats ---------- */
+.stats{
+  padding:90px 0;
+  background:
+    radial-gradient(800px 400px at 50% 0%, rgba(201,163,91,.12), transparent 60%),
+    var(--ink-2);
+  border-top:1px solid var(--line-light);
+  border-bottom:1px solid var(--line-light);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.stat{text-align:left;padding-left:24px;border-left:1px solid var(--line)}
+.stat .num{
+  font-family:'Fraunces',serif;
+  font-size:clamp(40px, 4.4vw, 56px);
+  font-weight:400;letter-spacing:-.03em;
+  color:#fff;line-height:1;margin-bottom:10px;
+}
+.stat .num em{font-style:italic;color:var(--gold-2);font-weight:300}
+.stat .label{font-size:13px;color:#9AA3BA;line-height:1.45}
+@media (max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}}
+
+/* ---------- Comparator ---------- */
+.compare{padding:120px 0;background:var(--ink)}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cmp-col{
+  border-radius:var(--radius-lg);
+  padding:36px 32px;
+  border:1px solid var(--line);
+}
+.cmp-col.old{
+  background:linear-gradient(180deg, rgba(26,36,64,.25), rgba(17,26,46,.25));
+}
+.cmp-col.new{
+  background:linear-gradient(180deg, rgba(201,163,91,.08), rgba(201,163,91,.02));
+  border-color:rgba(201,163,91,.3);
+  position:relative;
+}
+.cmp-col.new::before{
+  content:"Notre approche";
+  position:absolute;top:-14px;left:32px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  padding:6px 12px;border-radius:999px;
+  background:var(--gold);color:var(--ink);
+}
+.cmp-col h4{font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin-bottom:24px;color:#fff;letter-spacing:-.01em}
+.cmp-col.old h4{color:#9AA3BA}
+.cmp-list{list-style:none}
+.cmp-list li{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 0;font-size:15px;color:#C9D0E0;
+  border-bottom:1px solid var(--line-light);
+}
+.cmp-list li:last-child{border:none}
+.cmp-list li svg{flex-shrink:0;width:18px;height:18px;margin-top:2px}
+.cmp-col.old svg{color:#7A8299}
+.cmp-col.new svg{color:var(--emerald)}
+@media (max-width:880px){.cmp-grid{grid-template-columns:1fr}}
+
+/* ---------- Testimonial ---------- */
+.testimonial{
+  padding:120px 0;
+  background:
+    radial-gradient(600px 400px at 80% 50%, rgba(201,163,91,.1), transparent 60%),
+    var(--ink-2);
+}
+.testim-grid{display:grid;grid-template-columns:.6fr 1.4fr;gap:60px;align-items:center}
+.testim-quote{position:relative}
+.testim-quote::before{
+  content:"\201C";
+  position:absolute;top:-60px;left:-20px;
+  font-family:'Fraunces',serif;
+  font-size:200px;color:var(--gold);opacity:.18;line-height:1;
+}
+.testim-quote p{
+  font-family:'Fraunces',serif;font-weight:300;font-style:italic;
+  font-size:clamp(22px, 2.4vw, 30px);
+  line-height:1.35;color:#fff;letter-spacing:-.01em;
+  margin-bottom:30px;position:relative;
+}
+.testim-author{display:flex;align-items:center;gap:16px}
+.testim-avatar{
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg, #C9A35B, #8E6E2D);
+  display:grid;place-items:center;color:#0B1220;
+  font-family:'Fraunces',serif;font-size:22px;font-weight:500;
+}
+.testim-author .info b{display:block;color:#fff;font-size:15px;font-weight:600;margin-bottom:2px}
+.testim-author .info span{font-size:13px;color:#9AA3BA}
+.testim-side{
+  background:linear-gradient(180deg, rgba(26,36,64,.5), rgba(17,26,46,.5));
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:36px;
+}
+.testim-side h4{font-family:'Fraunces',serif;font-size:22px;color:#fff;font-weight:500;margin-bottom:20px;letter-spacing:-.01em}
+.kpi{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line-light);font-size:14px}
+.kpi:last-child{border:none}
+.kpi span:first-child{color:#9AA3BA}
+.kpi span:last-child{color:#fff;font-weight:600}
+.kpi span:last-child em{color:var(--gold-2);font-style:normal}
+@media (max-width:980px){.testim-grid{grid-template-columns:1fr;gap:40px}.testim-quote::before{font-size:140px;top:-40px}}
+
+/* ---------- FAQ ---------- */
+.faq{padding:120px 0;background:var(--ink)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.faq-list{display:flex;flex-direction:column;gap:14px}
+.faq-item{
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  transition:border-color .2s;
+}
+.faq-item[open]{border-color:rgba(201,163,91,.35)}
+.faq-item summary{
+  cursor:pointer;list-style:none;
+  padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  font-family:'Fraunces',serif;font-size:18px;color:#fff;font-weight:500;letter-spacing:-.005em;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";font-size:24px;color:var(--gold);font-weight:300;
+  width:28px;height:28px;display:grid;place-items:center;flex-shrink:0;
+  transition:transform .3s;
+}
+.faq-item[open] summary::after{content:"\2013"; transform:rotate(0)}
+.faq-item .a{padding:0 26px 24px;font-size:15px;color:#B5BDD0;line-height:1.65}
+@media (max-width:880px){.faq-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- Final CTA ---------- */
+.final{
+  padding:120px 0;position:relative;overflow:hidden;
+  background:linear-gradient(180deg, var(--ink) 0%, #050811 100%);
+}
+.final::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(800px 500px at 50% 100%, rgba(201,163,91,.18), transparent 60%);
+}
+.final-inner{
+  position:relative;z-index:2;text-align:center;max-width:780px;margin:0 auto;
+}
+.final h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(40px, 5.5vw, 72px);
+  line-height:1.02;letter-spacing:-.035em;font-weight:400;
+  color:#fff;margin:20px 0 24px;
+}
+.final h2 em{font-style:italic;color:var(--gold-2);font-weight:300}
+.final p{font-size:18px;color:#B5BDD0;margin-bottom:36px}
+.final .btn-primary{padding:18px 34px;font-size:15px}
+.final .secondary-line{margin-top:24px;font-size:13px;color:var(--muted)}
+.final .secondary-line a{color:var(--gold-2);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(201,163,91,.3)}
+
+/* ---------- Footer ---------- */
+footer{
+  padding:60px 0 40px;
+  background:#050811;
+  border-top:1px solid var(--line-light);
+}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.foot-links{display:flex;gap:24px;list-style:none}
+.foot-links a{color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:#fff}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) forwards}
+.reveal-1{animation-delay:.05s}
+.reveal-2{animation-delay:.15s}
+.reveal-3{animation-delay:.25s}
+.reveal-4{animation-delay:.35s}
+
+/* IntersectionObserver triggered reveals */
+.io-reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+.io-reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo" aria-label="Plateforme Financement">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round">
+          <path d="M4 18 L10 12 L14 16 L20 6"/>
+          <path d="M14 6 L20 6 L20 12"/>
+        </svg>
+      </span>
+      <span class="logo-wordmark">
+        <span class="lw-1">Plateforme</span>
+        <span class="lw-2">Financement</span>
+      </span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#methode">Méthode</a></li>
+        <li><a href="#preuve">Résultats</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Nous appeler</a>
+      <a href="#qualifier" class="btn btn-primary">
+        Étudier mon dossier
+        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow reveal reveal-1"><span class="dot"></span>Plateforme de financement · Réservée aux entreprises établies</span>
+      <h1 class="reveal reveal-2">
+        Financer la prochaine étape <em>de votre entreprise</em>, sans la chercher.
+      </h1>
+      <p class="lede reveal reveal-3">
+        Nous mettons en concurrence 80+ banques, fonds de dette et financeurs alternatifs pour structurer la solution la plus compétitive — trésorerie, BFR, croissance externe, opérations stratégiques. Vous gardez la décision. Nous portons la négociation.
+      </p>
+      <div class="hero-ctas reveal reveal-3">
+        <a href="#qualifier" class="btn btn-primary">
+          Étudier mon dossier — gratuit
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#methode" class="btn btn-ghost">Voir notre méthode</a>
+      </div>
+      <div class="trust-row reveal reveal-4">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Pré-qualification en 48h</div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Sans engagement</div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Données chiffrées AES-256</div>
+      </div>
+    </div>
+
+    <!-- Qualifier card -->
+    <form class="qualifier" id="qualifier" onsubmit="event.preventDefault(); document.getElementById('q-success').style.display='block'; this.style.display='none';">
+      <div class="qualifier-head">
+        <div>
+          <h3>Étude de financement</h3>
+          <p class="sub">Réponse personnalisée sous 48h</p>
+        </div>
+        <span class="q-step">Étape 1 / 1</span>
+      </div>
+
+      <div class="field">
+        <label>Besoin de financement</label>
+        <select required>
+          <option value="">Sélectionner…</option>
+          <option>Trésorerie & BFR</option>
+          <option>Croissance & investissement</option>
+          <option>Croissance externe (LBO, build-up)</option>
+          <option>Affacturage / Poste client</option>
+          <option>Financement immobilier professionnel</option>
+          <option>Refinancement / Restructuration de dette</option>
+          <option>Autre — à préciser</option>
+        </select>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Montant estimé</label>
+          <select required>
+            <option value="">Sélectionner…</option>
+            <option>100 K€ – 500 K€</option>
+            <option>500 K€ – 1 M€</option>
+            <option>1 M€ – 3 M€</option>
+            <option>3 M€ – 10 M€</option>
+            <option>+ 10 M€</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Échéance souhaitée</label>
+          <select required>
+            <option value="">Sélectionner…</option>
+            <option>Urgent (&lt; 30 jours)</option>
+            <option>1 à 3 mois</option>
+            <option>3 à 6 mois</option>
+            <option>Exploratoire</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Nom & prénom</label>
+          <input type="text" placeholder="Jean Dupont" required />
+        </div>
+        <div class="field">
+          <label>Société</label>
+          <input type="text" placeholder="Raison sociale" required />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Email professionnel</label>
+          <input type="email" placeholder="vous@société.fr" required />
+        </div>
+        <div class="field">
+          <label>Téléphone</label>
+          <input type="tel" placeholder="06 …" required />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Lancer mon étude
+        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <p class="micro">Étude <b>100% confidentielle</b> · Sans engagement · Aucun impact sur votre scoring bancaire</p>
+    </form>
+
+    <div id="q-success" style="display:none;background:linear-gradient(180deg, rgba(63,181,138,.12), rgba(63,181,138,.04));border:1px solid rgba(63,181,138,.3);border-radius:22px;padding:40px;text-align:center;">
+      <div style="width:60px;height:60px;border-radius:50%;background:rgba(63,181,138,.2);margin:0 auto 20px;display:grid;place-items:center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3FB58A" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 style="font-family:'Fraunces',serif;font-size:24px;color:#fff;margin-bottom:10px;">Demande reçue</h3>
+      <p style="color:#B5BDD0;font-size:14px;">Un de nos analystes vous recontacte sous 24 à 48h ouvrées pour une première qualification.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== LOGO STRIP ============== -->
+<section class="logos">
+  <div class="wrap logos-inner">
+    <div class="logos-label">Réseau partenaire</div>
+    <div class="logos-list">
+      <span>Banques de la place</span>
+      <span>·</span>
+      <span>Fonds de dette privée</span>
+      <span>·</span>
+      <span>Financeurs alternatifs</span>
+      <span>·</span>
+      <span>Bpifrance</span>
+      <span>·</span>
+      <span>Family Offices</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOLUTIONS ============== -->
+<section class="solutions section" id="solutions">
+  <div class="wrap">
+    <div class="section-head io-reveal">
+      <span class="mono-tag">— Nos solutions</span>
+      <h2>Le financement, <em>structuré comme un dossier d'investissement.</em></h2>
+      <p>Six familles de solutions, un seul interlocuteur. Chaque dossier est instruit, modélisé et présenté aux financeurs avec la rigueur d'une opération de haut de bilan — quel que soit le montant.</p>
+    </div>
+
+    <div class="sol-grid">
+      <article class="sol-card io-reveal">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L12 22 M5 7 C5 5 7 4 12 4 C17 4 19 5 19 7 C19 9 17 10 12 10 C7 10 5 11 5 13 C5 15 7 16 12 16 C17 16 19 17 19 19 C19 21 17 22 12 22"/></svg>
+        </div>
+        <h3>Trésorerie & BFR</h3>
+        <p>Lignes de crédit, découvert structuré, financement de stocks et de cycle d'exploitation pour fluidifier votre besoin en fonds de roulement.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Ligne court terme</span>
+          <span class="sol-tag">Dailly</span>
+          <span class="sol-tag">Stock</span>
+        </div>
+      </article>
+
+      <article class="sol-card io-reveal">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21 L3 13 L8 13 L8 21 M10 21 L10 7 L15 7 L15 21 M17 21 L17 3 L22 3 L22 21 M2 21 L23 21"/></svg>
+        </div>
+        <h3>Croissance & investissement</h3>
+        <p>Crédits d'investissement, financement d'équipement, prêts à terme structurés pour soutenir votre plan de développement à 5–7 ans.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Crédit moyen terme</span>
+          <span class="sol-tag">Leasing</span>
+          <span class="sol-tag">Prêt participatif</span>
+        </div>
+      </article>
+
+      <article class="sol-card io-reveal">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3 L12 21 M3 12 L21 12"/></svg>
+        </div>
+        <h3>Croissance externe</h3>
+        <p>Financement d'acquisition (LBO, OBO, build-up), structuration de dette senior et mezzanine, en partenariat avec fonds de dette privée et banques d'affaires.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">LBO</span>
+          <span class="sol-tag">Dette unitranche</span>
+          <span class="sol-tag">Mezzanine</span>
+        </div>
+      </article>
+
+      <article class="sol-card io-reveal">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10 L21 10 M8 15 L11 15"/></svg>
+        </div>
+        <h3>Affacturage & poste client</h3>
+        <p>Mobilisation de créances, affacturage déconsolidant, assurance-crédit. Améliorez vos ratios de bilan et sécurisez votre encours client.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Affacturage</span>
+          <span class="sol-tag">Reverse factoring</span>
+          <span class="sol-tag">Assurance-crédit</span>
+        </div>
+      </article>
+
+      <article class="sol-card io-reveal">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22 L3 10 L12 3 L21 10 L21 22 Z M9 22 L9 14 L15 14 L15 22"/></svg>
+        </div>
+        <h3>Immobilier d'entreprise</h3>
+        <p>Acquisition, construction ou refinancement de votre actif professionnel. Optimisation du couple SCI / société d'exploitation.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Crédit-bail immobilier</span>
+          <span class="sol-tag">Refinancement</span>
+        </div>
+      </article>
+
+      <article class="sol-card io-reveal">
+        <div class="sol-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12 A9 9 0 1 1 12 3 M21 3 L21 9 L15 9"/></svg>
+        </div>
+        <h3>Refinancement de dette</h3>
+        <p>Restructuration d'encours existants, renégociation de covenants, rééchelonnement. Reprenez la main sur votre passif financier.</p>
+        <div class="sol-tags">
+          <span class="sol-tag">Restructuration</span>
+          <span class="sol-tag">Covenants</span>
+          <span class="sol-tag">Renégociation</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROCESS ============== -->
+<section class="process section" id="methode">
+  <div class="wrap">
+    <div class="section-head io-reveal">
+      <span class="mono-tag">— Notre méthode</span>
+      <h2>Trois étapes. <em>Aucune perte de temps.</em></h2>
+      <p>Un process industrialisé qui s'aligne sur le tempo de votre direction financière. Vous n'allez pas frapper aux portes des banques — c'est l'inverse.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step io-reveal">
+        <div class="step-num">01</div>
+        <h3>Diagnostic & instruction</h3>
+        <p>Audit confidentiel de votre situation : structure de bilan, prévisionnel, garanties mobilisables. Nous construisons votre dossier comme un mémo d'investissement.</p>
+        <div class="step-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L16 14"/></svg>
+          48 heures
+        </div>
+      </article>
+
+      <article class="step io-reveal">
+        <div class="step-num">02</div>
+        <h3>Mise en concurrence</h3>
+        <p>Présentation simultanée à un panel ciblé de financeurs — banques, fonds de dette, Bpifrance, alternatifs. Vous recevez plusieurs offres comparables, structurées, négociées.</p>
+        <div class="step-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L16 14"/></svg>
+          2 à 4 semaines
+        </div>
+      </article>
+
+      <article class="step io-reveal">
+        <div class="step-num">03</div>
+        <h3>Closing & déblocage</h3>
+        <p>Arbitrage final, négociation des covenants, sécurisation juridique. Nous restons à vos côtés jusqu'au déblocage effectif des fonds — et au-delà.</p>
+        <div class="step-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L16 14"/></svg>
+          Closing en 4 à 8 semaines
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATS ============== -->
+<section class="stats" id="preuve">
+  <div class="wrap stats-grid">
+    <div class="stat io-reveal">
+      <div class="num"><em>150 M€</em></div>
+      <div class="label">de fonds structurés pour nos clients</div>
+    </div>
+    <div class="stat io-reveal">
+      <div class="num"><em>80+</em></div>
+      <div class="label">partenaires financiers actifs au catalogue</div>
+    </div>
+    <div class="stat io-reveal">
+      <div class="num"><em>60 ans</em></div>
+      <div class="label">d'expérience cumulée dans nos équipes</div>
+    </div>
+    <div class="stat io-reveal">
+      <div class="num"><em>92%</em></div>
+      <div class="label">de dossiers qualifiés financés sous 8 semaines</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== COMPARATOR ============== -->
+<section class="compare">
+  <div class="wrap">
+    <div class="section-head io-reveal">
+      <span class="mono-tag">— Pourquoi nous</span>
+      <h2>Le financement n'est plus <em>une démarche bancaire.</em></h2>
+      <p>C'est une opération. Comparable, négociable, optimisable. Voilà la différence entre la voie classique et notre approche.</p>
+    </div>
+
+    <div class="cmp-grid">
+      <div class="cmp-col old io-reveal">
+        <h4>La voie classique</h4>
+        <ul class="cmp-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg> Vous démarchez les banques une par une, sans visibilité comparative</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg> Vous découvrez les conditions au moment de l'offre, sans levier</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg> Vous ignorez la moitié des financeurs disponibles (fonds, alternatifs)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg> Vous mobilisez 3 à 6 mois de bande passante interne</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg> Vous signez des covenants standards, rarement renégociés</li>
+        </ul>
+      </div>
+
+      <div class="cmp-col new io-reveal">
+        <h4>Avec Plateforme Financement</h4>
+        <ul class="cmp-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Un panel ciblé de financeurs sollicités <b>simultanément</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Plusieurs offres comparables, présentées <b>en parallèle</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Accès à 80+ partenaires : banques, fonds, alternatifs, Bpifrance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 4 à 8 semaines de closing — vous restez sur votre business</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <b>Négociation active</b> des taux, garanties et covenants</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIAL ============== -->
+<section class="testimonial">
+  <div class="wrap testim-grid">
+    <div class="testim-quote io-reveal">
+      <p>Ils ont obtenu, en six semaines, ce que nous n'aurions probablement jamais structuré seuls — ni dans ces conditions, ni à ce coût. La différence ne se chiffre pas seulement en points de base, elle se mesure en mois de visibilité gagnés.</p>
+      <div class="testim-author">
+        <div class="testim-avatar">M</div>
+        <div class="info">
+          <b>M. — DAF</b>
+          <span>Groupe industriel, secteur agroalimentaire</span>
+        </div>
+      </div>
+    </div>
+    <div class="testim-side io-reveal">
+      <h4>Le dossier en chiffres</h4>
+      <div class="kpi"><span>Type d'opération</span><span>Refinancement + ligne BFR</span></div>
+      <div class="kpi"><span>Montant structuré</span><span><em>8,2 M€</em></span></div>
+      <div class="kpi"><span>Délai jusqu'à closing</span><span><em>6 semaines</em></span></div>
+      <div class="kpi"><span>Financeurs consultés</span><span>11</span></div>
+      <div class="kpi"><span>Offres reçues</span><span>5</span></div>
+      <div class="kpi"><span>Économie vs offre initiale</span><span><em>– 0,9% / an</em></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div class="io-reveal">
+      <span class="mono-tag">— Questions fréquentes</span>
+      <h2 class="serif" style="font-size:42px;line-height:1.05;letter-spacing:-.03em;color:#fff;margin:18px 0 20px;font-weight:400">Vous avez encore <em style="color:var(--gold-2);font-weight:300">des doutes ?</em></h2>
+      <p style="color:#B5BDD0;font-size:16px;margin-bottom:30px">C'est légitime. Voici les questions que tous nos clients ont posé avant d'engager le premier échange.</p>
+      <a href="#qualifier" class="btn btn-primary">
+        Étudier mon dossier
+        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="faq-list io-reveal">
+      <details class="faq-item">
+        <summary>Quels types d'entreprises accompagnez-vous ?</summary>
+        <div class="a">Nous travaillons avec des sociétés établies, rentables ou en forte croissance, structurées et capables de présenter des comptes audités. Notre approche est calibrée pour des opérations à partir de quelques centaines de milliers d'euros — sans plafond supérieur.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Combien coûte votre intervention ?</summary>
+        <div class="a">L'étude préalable est gratuite et sans engagement. Notre rémunération est principalement adossée au succès de l'opération, en pourcentage des fonds débloqués. Aucun honoraire n'est dû tant que le financement n'est pas obtenu. Toutes les conditions sont transparentes et formalisées avant le démarrage.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Travaillez-vous en complément de notre banque historique ?</summary>
+        <div class="a">Absolument. Nous ne remplaçons jamais votre banquier de référence — nous l'intégrons dans la consultation. Notre rôle est d'élargir le terrain de négociation pour que votre partenaire historique se positionne dans un contexte concurrentiel sain, et que vous accédiez à des financeurs auxquels vous n'avez pas naturellement accès.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Mes données restent-elles confidentielles ?</summary>
+        <div class="a">Oui. Toutes les informations transmises sont couvertes par un engagement de confidentialité strict. Aucun document n'est diffusé sans votre validation préalable. Les financeurs sollicités le sont uniquement après votre accord sur la short-list.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quel délai pour obtenir une réponse de votre part ?</summary>
+        <div class="a">Vous recevez une première qualification téléphonique sous 24 à 48 heures ouvrées. À l'issue de cet échange, nous savons vous dire si votre projet entre dans notre champ d'intervention et quelle stratégie de financement serait la plus pertinente.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Et si ma demande est urgente ?</summary>
+        <div class="a">Nous avons des process accélérés pour les situations urgentes (tensions de trésorerie, opportunités d'acquisition, échéances réglementaires). Indiquez-le dès le formulaire : nous traitons les urgences en flux prioritaire.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final" id="contact">
+  <div class="wrap final-inner">
+    <span class="eyebrow"><span class="dot"></span>Premier échange · Confidentiel · Sans engagement</span>
+    <h2>Votre prochain financement <em>commence par un appel.</em></h2>
+    <p>30 minutes pour comprendre votre projet. Quelques jours pour structurer votre dossier. Quelques semaines pour vous mettre l'offre la plus compétitive du marché entre les mains.</p>
+    <a href="#qualifier" class="btn btn-primary">
+      Lancer mon étude de financement
+      <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <p class="secondary-line">Ou contactez directement un de nos analystes au <a href="tel:0970707919">09 70 70 79 19</a></p>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap foot-inner">
+    <div>© 2026 Plateforme Financement — Tous droits réservés.</div>
+    <ul class="foot-links">
+      <li><a href="#">Mentions légales</a></li>
+      <li><a href="#">Confidentialité</a></li>
+      <li><a href="#">Cookies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// IntersectionObserver reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:.12, rootMargin:'0px 0px -60px 0px'});
+
+document.querySelectorAll('.io-reveal').forEach(el => io.observe(el));
+
+// Smooth focus on qualifier when clicking primary CTAs
+document.querySelectorAll('a[href="#qualifier"]').forEach(a => {
+  a.addEventListener('click', () => {
+    setTimeout(() => {
+      const f = document.querySelector('#qualifier select, #qualifier input');
+      if(f) f.focus({preventScroll:true});
+    }, 700);
+  });
+});
+</script>
+
+</body>
+</html>
