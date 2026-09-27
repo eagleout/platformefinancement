@@ -481,6 +481,180 @@ footer{
 /* IntersectionObserver triggered reveals */
 .io-reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
 .io-reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ========== FinancementsPME.fr — UI/UX refresh ========== */
+:root{
+  --brand-navy:#043B5B;
+  --brand-navy-2:#062F49;
+  --brand-green:#05BE82;
+  --brand-green-dark:#059B6C;
+  --brand-green-soft:#EAF9F4;
+  --brand-slate:#536D7A;
+  --surface:#FFFFFF;
+  --surface-soft:#F6FAFB;
+  --surface-blue:#EEF5F7;
+  --text:#123247;
+  --text-soft:#5E7481;
+  --border:#DCE8EC;
+  --ink:var(--surface);
+  --ink-2:var(--surface-soft);
+  --ink-3:#EAF2F5;
+  --paper:var(--surface-soft);
+  --paper-2:#EDF4F6;
+  --line:var(--border);
+  --line-light:rgba(4,59,91,.09);
+  --gold:var(--brand-green);
+  --gold-2:var(--brand-green);
+  --emerald:var(--brand-green);
+  --muted:#79909B;
+  --muted-2:#90A4AD;
+  --radius:14px;
+  --radius-lg:20px;
+  --shadow-soft:0 1px 2px rgba(4,59,91,.04),0 18px 45px -24px rgba(4,59,91,.22);
+}
+body{color:var(--text);background:#fff}
+.wrap{max-width:1220px}
+.nav{
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid rgba(4,59,91,.09);
+  box-shadow:0 6px 22px rgba(4,59,91,.04);
+}
+.nav-inner{height:78px}
+.brand-logo-link{min-width:270px}
+.brand-logo-svg{display:block;width:285px;height:auto;max-height:52px}
+.nav-links a{color:#456272}
+.nav-links a:hover{color:var(--brand-navy)}
+.btn{border-radius:11px}
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(180deg,#08C98B 0%,#05B77E 100%);
+  box-shadow:0 12px 28px -14px rgba(5,190,130,.65),inset 0 1px 0 rgba(255,255,255,.35);
+}
+.btn-primary:hover{background:linear-gradient(180deg,#09C98C,#059F6F);box-shadow:0 16px 34px -14px rgba(5,190,130,.72)}
+.btn-ghost{color:var(--brand-navy);background:#fff;border:1px solid #CFE0E5}
+.btn-ghost:hover{border-color:#9FC3CF;background:#F7FBFC}
+.hero{
+  padding:88px 0 104px;
+  background:
+    radial-gradient(900px 520px at 92% 8%,rgba(5,190,130,.12),transparent 62%),
+    radial-gradient(760px 480px at 8% 92%,rgba(4,59,91,.07),transparent 65%),
+    linear-gradient(180deg,#FFFFFF 0%,#F6FAFB 100%);
+}
+.hero::before{background:none}
+.hero::after{opacity:.55;background-image:linear-gradient(rgba(4,59,91,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(4,59,91,.035) 1px,transparent 1px)}
+.hero h1{color:var(--brand-navy);font-weight:500}
+.hero h1 em{background:none;color:var(--brand-green);-webkit-text-fill-color:var(--brand-green)}
+.hero .lede{color:#536D7A}
+.eyebrow{background:#fff;border-color:#D8E8EC;color:#476573;box-shadow:0 6px 18px rgba(4,59,91,.05)}
+.eyebrow .dot{background:var(--brand-green);box-shadow:0 0 0 4px rgba(5,190,130,.13)}
+.trust-row{border-top-color:#DCE8EC}
+.trust-row .item{color:#627A87}
+.trust-row svg{color:var(--brand-green)}
+.qualifier{
+  background:rgba(255,255,255,.96);
+  border:1px solid #D8E6EA;
+  box-shadow:0 24px 70px -30px rgba(4,59,91,.28);
+}
+.qualifier::before{background:linear-gradient(180deg,rgba(5,190,130,.35),transparent 40%)}
+.qualifier h3{color:var(--brand-navy)}
+.qualifier .sub,.qualifier .micro{color:#6E8692}
+.q-step{color:var(--brand-green)}
+.field label{color:#405D6B}
+.field input,.field select{background:#FBFDFE;border-color:#D9E6EA;color:#17394C}
+.field input:focus,.field select:focus{border-color:var(--brand-green);box-shadow:0 0 0 3px rgba(5,190,130,.12)}
+.field select{background-color:#FBFDFE}
+.qualifier .micro b{color:#405D6B}
+.logos{background:#fff;border-color:#E4EDF0}
+.logos-label{color:#8297A0}
+.logos-list{opacity:.68}.logos-list span{color:#5D7480}
+.section{padding:112px 0}
+.section-head h2{color:var(--brand-navy)}
+.section-head h2 em{color:var(--brand-green)}
+.section-head p{color:#5A7280}
+.mono-tag{color:var(--brand-green)}
+.solutions{background:linear-gradient(180deg,#F8FBFC 0%,#FFFFFF 100%)}
+.sol-card{background:#fff;border-color:#DDE9EC;box-shadow:0 12px 30px -24px rgba(4,59,91,.30)}
+.sol-card:hover{border-color:#ADD6C8;box-shadow:0 20px 44px -26px rgba(4,59,91,.34)}
+.sol-card::before{background:linear-gradient(90deg,transparent,var(--brand-green),transparent)}
+.sol-icon{background:var(--brand-green-soft);border-color:#CBEFE2;color:var(--brand-green)}
+.sol-card h3{color:var(--brand-navy)}
+.sol-card p{color:#617985}
+.sol-tag{background:#EFFAF6;border-color:#D1F0E4;color:#17805E}
+.process{background:#F3F8F9;color:var(--text)}
+.process .section-head h2{color:var(--brand-navy)}
+.process .section-head h2 em,.process .mono-tag{color:var(--brand-green)}
+.process .section-head p{color:#5A7280}
+.process .eyebrow{color:#55717F;border-color:#D8E6EA;background:#fff}
+.step{border-color:#DDE8EB;box-shadow:0 16px 36px -28px rgba(4,59,91,.28)}
+.step-num{color:var(--brand-green)}
+.step h3{color:var(--brand-navy)}
+.step p{color:#617884}
+.step-meta{color:#188261;border-top-color:#DDE8EB}
+.stats{
+  background:
+    radial-gradient(760px 380px at 50% 0%,rgba(5,190,130,.17),transparent 62%),
+    linear-gradient(135deg,#043B5B,#062F49);
+}
+.stat{border-left-color:rgba(255,255,255,.16)}
+.stat .num{color:#fff}.stat .num em{color:#8BE5C7}
+.stat .label{color:#C1D2DA}
+.compare{background:#fff}
+.cmp-col{border-color:#DDE8EB}
+.cmp-col.old{background:#F7FAFB}
+.cmp-col.new{background:linear-gradient(180deg,#F0FBF7,#F8FCFA);border-color:#BFE8D9}
+.cmp-col.new::before{background:var(--brand-green);color:#fff}
+.cmp-col h4{color:var(--brand-navy)}.cmp-col.old h4{color:#6C828D}
+.cmp-list li{color:#526B77;border-bottom-color:#E3ECEF}
+.cmp-col.old svg{color:#97A8B0}.cmp-col.new svg{color:var(--brand-green)}
+.testimonial{
+  background:
+    radial-gradient(650px 420px at 85% 50%,rgba(5,190,130,.12),transparent 62%),
+    #F4F8F9;
+}
+.testim-quote::before{color:var(--brand-green)}
+.testim-quote p{color:var(--brand-navy)}
+.testim-author .info b{color:var(--brand-navy)}
+.testim-author .info span{color:#6E8590}
+.testim-avatar{background:linear-gradient(135deg,#0AC78B,#059B6C);color:#fff}
+.testim-side{background:#fff;border-color:#DCE8EC;box-shadow:0 18px 42px -30px rgba(4,59,91,.28)}
+.testim-side h4{color:var(--brand-navy)}
+.kpi{border-bottom-color:#E4ECEF}.kpi span:first-child{color:#708792}.kpi span:last-child{color:#17394C}.kpi span:last-child em{color:#17805E}
+.faq{background:#fff}
+.faq .serif{color:var(--brand-navy)!important}
+.faq .serif em{color:var(--brand-green)!important}
+.faq-grid>div>p{color:#607A87!important}
+.faq-item{background:#fff;border-color:#DDE8EB;box-shadow:0 8px 20px -20px rgba(4,59,91,.35)}
+.faq-item[open]{border-color:#B9E5D6}
+.faq-item summary{color:var(--brand-navy)}
+.faq-item summary::after{color:var(--brand-green)}
+.faq-item .a{color:#607783}
+.final{
+  background:
+    radial-gradient(820px 520px at 50% 100%,rgba(5,190,130,.2),transparent 62%),
+    linear-gradient(135deg,#043B5B,#052E47);
+}
+.final::before{display:none}
+.final h2{color:#fff}
+.final h2 em{color:#8BE5C7}
+.final p{color:#CAD8DE}
+.final .secondary-line{color:#AFC1C9}
+.final .secondary-line a{color:#8BE5C7;border-bottom-color:rgba(139,229,199,.45)}
+footer{background:#032B42;border-top-color:rgba(255,255,255,.08)}
+.foot-inner,.foot-links a{color:#A9BDC7}.foot-links a:hover{color:#fff}
+@media(max-width:880px){
+  .brand-logo-link{min-width:0}
+  .brand-logo-svg{width:220px}
+  .nav-cta .btn-ghost{display:none}
+}
+@media(max-width:620px){
+  .wrap{padding:0 20px}
+  .nav-inner{height:70px}
+  .brand-logo-svg{width:190px}
+  .nav-cta .btn-primary{padding:10px 13px;font-size:12px}
+  .hero{padding:54px 0 70px}
+  .field-row{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -488,17 +662,27 @@ footer{
 <!-- ============== NAV ============== -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a href="#" class="logo" aria-label="Plateforme Financement">
-      <span class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round">
-          <path d="M4 18 L10 12 L14 16 L20 6"/>
-          <path d="M14 6 L20 6 L20 12"/>
-        </svg>
-      </span>
-      <span class="logo-wordmark">
-        <span class="lw-1">Plateforme</span>
-        <span class="lw-2">Financement</span>
-      </span>
+    <a href="#" class="logo brand-logo-link" aria-label="FinancementsPME.fr">
+      <svg class="brand-logo-svg" viewBox="0 0 640 88" role="img" aria-label="FinancementsPME.fr">
+        <defs>
+          <linearGradient id="fpmeGreen" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0BAA76"/>
+            <stop offset="100%" stop-color="#00C98B"/>
+          </linearGradient>
+          <linearGradient id="fpmeNavy" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#02324C"/>
+            <stop offset="100%" stop-color="#075579"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(2 7)">
+          <path d="M12 18C12 8 20 0 30 0h54L72 16H34c-3 0-5 2-5 5v10H12V18Z" fill="url(#fpmeNavy)"/>
+          <path d="M12 31h17v32H12z" fill="#04364E"/>
+          <path d="M3 55C22 45 39 36 52 23c5-5 9-10 12-16l-8-3L80 0v25l-8-8c-4 8-9 15-15 21C43 52 25 62 4 72Z" fill="url(#fpmeGreen)"/>
+        </g>
+        <text x="103" y="58" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="-1.7">
+          <tspan fill="#043B5B">Financements</tspan><tspan fill="#05BE82">PME</tspan><tspan fill="#536D7A">.fr</tspan>
+        </text>
+      </svg>
     </a>
     <nav>
       <ul class="nav-links">
