@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.plateformefinancement.fr/sitemap.xml
+Sitemap: https://financementspme.fr/sitemap.xml
