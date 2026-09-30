@@ -1299,7 +1299,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
     </div>
 
     <!-- Qualifier card -->
-    <form class="qualifier" id="qualifier">
+    <form class="qualifier" id="qualifier" action="https://formsubmit.co/contact@financementspme.fr" method="POST">
       <div class="qualifier-head">
         <div>
           <h3>Étude de financement</h3>
@@ -1368,6 +1368,10 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
         </div>
       </div>
 
+      <input type="hidden" name="_subject" value="Nouvelle demande d'étude — FinancementsPME.fr" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://financementspme.fr/merci-etude/" />
+      <input type="hidden" name="_url" value="https://financementspme.fr/" />
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
       <button type="submit" class="btn btn-primary" id="q-submit">
         <span class="q-submit-label">Lancer mon étude</span>
@@ -1756,54 +1760,6 @@ if(menuToggle && navHeader){
       navHeader.classList.remove('menu-open');
       menuToggle.setAttribute('aria-expanded', 'false');
     });
-  });
-}
-
-// Envoi sécurisé du formulaire d'étude vers contact@financementspme.fr
-const qualifierForm = document.getElementById('qualifier');
-if (qualifierForm) {
-  qualifierForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const submitButton = document.getElementById('q-submit');
-    const submitLabel = submitButton?.querySelector('.q-submit-label');
-    const errorBox = document.getElementById('q-error');
-    const successBox = document.getElementById('q-success');
-
-    if (errorBox) errorBox.style.display = 'none';
-    if (submitButton) submitButton.disabled = true;
-    if (submitLabel) submitLabel.textContent = 'Envoi en cours…';
-
-    const formData = new FormData(qualifierForm);
-    const payload = {};
-    formData.forEach((value, key) => { payload[key] = value; });
-    payload._subject = 'Nouvelle demande d’étude — FinancementsPME.fr';
-    payload._template = 'table';
-
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/contact@financementspme.fr', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok || data.success === false) {
-        throw new Error(data.message || 'Erreur d’envoi');
-      }
-
-      qualifierForm.reset();
-      qualifierForm.style.display = 'none';
-      if (successBox) successBox.style.display = 'block';
-    } catch (error) {
-      console.error('Erreur formulaire FinancementsPME:', error);
-      if (errorBox) errorBox.style.display = 'block';
-      if (submitButton) submitButton.disabled = false;
-      if (submitLabel) submitLabel.textContent = 'Lancer mon étude';
-    }
   });
 }
 
