@@ -1299,7 +1299,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
     </div>
 
     <!-- Qualifier card -->
-    <form class="qualifier" id="qualifier" onsubmit="event.preventDefault(); document.getElementById('q-success').style.display='block'; this.style.display='none';">
+    <form class="qualifier" id="qualifier">
       <div class="qualifier-head">
         <div>
           <h3>Étude de financement</h3>
@@ -1310,7 +1310,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
 
       <div class="field">
         <label>Besoin de financement</label>
-        <select required>
+        <select name="Besoin de financement" required>
           <option value="">Sélectionner…</option>
           <option>Trésorerie & BFR</option>
           <option>Croissance & investissement</option>
@@ -1325,7 +1325,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
       <div class="field-row">
         <div class="field">
           <label>Montant estimé</label>
-          <select required>
+          <select name="Montant estimé" required>
             <option value="">Sélectionner…</option>
             <option>100 K€ – 500 K€</option>
             <option>500 K€ – 1 M€</option>
@@ -1336,7 +1336,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
         </div>
         <div class="field">
           <label>Échéance souhaitée</label>
-          <select required>
+          <select name="Échéance souhaitée" required>
             <option value="">Sélectionner…</option>
             <option>Urgent (&lt; 30 jours)</option>
             <option>1 à 3 mois</option>
@@ -1349,27 +1349,28 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
       <div class="field-row">
         <div class="field">
           <label>Nom & prénom</label>
-          <input type="text" placeholder="Jean Dupont" required />
+          <input type="text" name="Nom et prénom" placeholder="Jean Dupont" autocomplete="name" required />
         </div>
         <div class="field">
           <label>Société</label>
-          <input type="text" placeholder="Raison sociale" required />
+          <input type="text" name="Société" placeholder="Raison sociale" autocomplete="organization" required />
         </div>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label>Email professionnel</label>
-          <input type="email" placeholder="vous@société.fr" required />
+          <input type="email" name="email" placeholder="vous@société.fr" autocomplete="email" required />
         </div>
         <div class="field">
           <label>Téléphone</label>
-          <input type="tel" placeholder="06 …" required />
+          <input type="tel" name="Téléphone" placeholder="06 …" autocomplete="tel" required />
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">
-        Lancer mon étude
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+      <button type="submit" class="btn btn-primary" id="q-submit">
+        <span class="q-submit-label">Lancer mon étude</span>
         <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
       <p class="micro">Étude <b>100% confidentielle</b> · Sans engagement · Aucun impact sur votre scoring bancaire</p>
@@ -1381,6 +1382,9 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
       </div>
       <h3 style="font-family:'Fraunces',serif;font-size:24px;color:#fff;margin-bottom:10px;">Demande reçue</h3>
       <p style="color:#B5BDD0;font-size:14px;">Un de nos analystes vous recontacte sous 24 à 48h ouvrées pour une première qualification.</p>
+    </div>
+    <div id="q-error" style="display:none;background:#FFF4F1;border:1px solid #E8C7BD;border-radius:8px;padding:18px 20px;color:#7B3D2F;font-size:13px;line-height:1.55;">
+      L'envoi n'a pas abouti. Vous pouvez réessayer ou nous contacter directement à <a href="mailto:contact@financementspme.fr" style="color:#17384E;font-weight:700;">contact@financementspme.fr</a>.
     </div>
   </div>
 </section>
@@ -1752,6 +1756,54 @@ if(menuToggle && navHeader){
       navHeader.classList.remove('menu-open');
       menuToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+}
+
+// Envoi sécurisé du formulaire d'étude vers contact@financementspme.fr
+const qualifierForm = document.getElementById('qualifier');
+if (qualifierForm) {
+  qualifierForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton = document.getElementById('q-submit');
+    const submitLabel = submitButton?.querySelector('.q-submit-label');
+    const errorBox = document.getElementById('q-error');
+    const successBox = document.getElementById('q-success');
+
+    if (errorBox) errorBox.style.display = 'none';
+    if (submitButton) submitButton.disabled = true;
+    if (submitLabel) submitLabel.textContent = 'Envoi en cours…';
+
+    const formData = new FormData(qualifierForm);
+    const payload = {};
+    formData.forEach((value, key) => { payload[key] = value; });
+    payload._subject = 'Nouvelle demande d’étude — FinancementsPME.fr';
+    payload._template = 'table';
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/contact@financementspme.fr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.success === false) {
+        throw new Error(data.message || 'Erreur d’envoi');
+      }
+
+      qualifierForm.reset();
+      qualifierForm.style.display = 'none';
+      if (successBox) successBox.style.display = 'block';
+    } catch (error) {
+      console.error('Erreur formulaire FinancementsPME:', error);
+      if (errorBox) errorBox.style.display = 'block';
+      if (submitButton) submitButton.disabled = false;
+      if (submitLabel) submitLabel.textContent = 'Lancer mon étude';
+    }
   });
 }
 
