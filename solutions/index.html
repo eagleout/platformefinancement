@@ -950,6 +950,175 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
   .page-hero .actions{display:grid}
   .page-hero .actions .btn{width:100%;justify-content:center}
 }
+
+/* ---------- Footer premium ---------- */
+.site-footer{
+  background:#0C2B3D;
+  color:#D7E2E6;
+  border-top:0;
+  padding:0;
+}
+.footer-cta{
+  background:#12394D;
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.footer-cta-inner{
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  padding-top:44px;
+  padding-bottom:44px;
+}
+.footer-kicker{
+  display:block;
+  color:#79D4B2;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.footer-cta h2{
+  max-width:720px;
+  margin:0 0 10px;
+  font-family:'Fraunces',Georgia,serif;
+  font-size:clamp(30px,3.5vw,44px);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-.025em;
+  color:#fff;
+}
+.footer-cta p{
+  max-width:680px;
+  margin:0;
+  color:#B9CBD2;
+  font-size:14px;
+  line-height:1.7;
+}
+.footer-cta-button{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  min-height:50px;
+  padding:14px 20px;
+  background:#fff;
+  color:#12384D;
+  border-radius:5px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800;
+  transition:transform .2s ease, background .2s ease;
+}
+.footer-cta-button:hover{transform:translateY(-2px);background:#EFF8F4}
+.footer-main{
+  display:grid;
+  grid-template-columns:minmax(300px,1.6fr) repeat(3,minmax(145px,.75fr));
+  gap:48px;
+  padding-top:58px;
+  padding-bottom:48px;
+}
+.footer-brand{padding-right:26px}
+.footer-logo{
+  display:inline-flex;
+  align-items:baseline;
+  margin-bottom:18px;
+  text-decoration:none;
+  font-size:23px;
+  letter-spacing:-.035em;
+  font-weight:800;
+  color:#fff;
+}
+.footer-logo strong{color:#31C794;font-weight:800}
+.footer-logo em{font-style:normal;color:#90A6B0;font-weight:600}
+.footer-brand p{
+  max-width:410px;
+  color:#AFC1C9;
+  font-size:13px;
+  line-height:1.75;
+  margin:0 0 18px;
+}
+.footer-trust{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#8FA5AE;
+  font-size:11px;
+  letter-spacing:.02em;
+}
+.footer-trust span{
+  width:8px;height:8px;border-radius:50%;
+  background:#2FCB94;
+  box-shadow:0 0 0 4px rgba(47,203,148,.12);
+}
+.footer-col{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+}
+.footer-col h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.footer-col a{
+  color:#B9CBD2;
+  text-decoration:none;
+  font-size:13px;
+  line-height:1.45;
+  transition:color .2s ease, transform .2s ease;
+}
+.footer-col a:hover{color:#fff;transform:translateX(2px)}
+.footer-contact p{
+  margin:2px 0 2px;
+  color:#91A8B2;
+  font-size:12px;
+  line-height:1.55;
+}
+.footer-col .footer-phone{
+  color:#fff;
+  font-family:'Fraunces',Georgia,serif;
+  font-size:22px;
+  letter-spacing:-.01em;
+}
+.footer-col .footer-contact-link{
+  color:#78D4B1;
+  font-weight:700;
+  margin-top:4px;
+}
+.footer-bottom{
+  min-height:70px;
+  padding-top:20px;
+  padding-bottom:20px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  color:#8198A2;
+  font-size:11px;
+}
+.footer-disclaimer{text-align:right;max-width:520px}
+@media(max-width:900px){
+  .footer-cta-inner{align-items:flex-start;flex-direction:column;gap:24px}
+  .footer-main{grid-template-columns:1fr 1fr;gap:38px 26px}
+  .footer-brand{grid-column:1/-1;padding-right:0}
+}
+@media(max-width:560px){
+  .footer-cta-inner{padding-top:38px;padding-bottom:38px}
+  .footer-cta-button{width:100%;justify-content:center}
+  .footer-main{grid-template-columns:1fr;padding-top:42px;padding-bottom:38px}
+  .footer-brand{grid-column:auto}
+  .footer-bottom{align-items:flex-start;flex-direction:column;gap:9px}
+  .footer-disclaimer{text-align:left}
+}
+
 </style>
 </head>
 <body>
@@ -1032,15 +1201,54 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
   </div>
 </section>
 <section class="cta-band"><div class="wrap inner"><div><h2>Vous avez un projet précis ? Nous pouvons le qualifier rapidement.</h2><p>Premier échange confidentiel et sans engagement.</p></div><a href="/#qualifier" class="btn btn-primary">Lancer mon étude</a></div></section>
-<footer>
-  <div class="wrap foot-inner">
+<footer class="site-footer">
+  <div class="footer-cta">
+    <div class="wrap footer-cta-inner">
+      <div>
+        <span class="footer-kicker">Parlons financement</span>
+        <h2>Un projet, un besoin de trésorerie ou une opération à structurer ?</h2>
+        <p>Présentez-nous votre situation. Nous vous aidons à clarifier le besoin et les solutions de financement à explorer.</p>
+      </div>
+      <a class="footer-cta-button" href="/contact/">Présenter mon besoin <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="wrap footer-main">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/" aria-label="FinancementsPME.fr">
+        <span>Financements</span><strong>PME</strong><em>.fr</em>
+      </a>
+      <p>La finance des PME, expliquée pour décider. Des contenus documentés et un accompagnement centré sur la trésorerie, le financement et les opérations stratégiques.</p>
+      <div class="footer-trust"><span></span> PME · dirigeants · directions financières</div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Navigation</h3>
+      <a href="/">Accueil</a>
+      <a href="/solutions/">Nos solutions</a>
+      <a href="/media/">Le média</a>
+      <a href="/contact/">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>À lire</h3>
+      <a href="/media/bfr-guide-complet/">Guide du BFR</a>
+      <a href="/media/financer-bfr-solutions/">Financer son BFR</a>
+      <a href="/media/financer-acquisition-entreprise/">Croissance externe</a>
+      <a href="/media/dscr-ratio-banque/">Comprendre le DSCR</a>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h3>Nous contacter</h3>
+      <a class="footer-phone" href="tel:0970707919">09 70 70 79 19</a>
+      <p>Une question sur un besoin de financement ou une opération ?</p>
+      <a class="footer-contact-link" href="/contact/">Écrire à l'équipe →</a>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
     <div>© 2026 FinancementsPME.fr — Tous droits réservés.</div>
-    <ul class="foot-links">
-      <li><a href="/">Accueil</a></li>
-      <li><a href="/solutions/">Nos solutions</a></li>
-      <li><a href="/media/">Le média</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
+    <div class="footer-disclaimer">Informations générales à vocation pédagogique — pas de conseil financier personnalisé.</div>
   </div>
 </footer>
 <script>
