@@ -1299,7 +1299,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
     </div>
 
     <!-- Qualifier card -->
-    <form class="qualifier" id="qualifier" action="https://formsubmit.co/contact@financementspme.fr" method="POST">
+    <form class="qualifier" id="qualifier">
       <div class="qualifier-head">
         <div>
           <h3>Étude de financement</h3>
@@ -1368,11 +1368,7 @@ footer{background:#0C2434;border-top:1px solid rgba(255,255,255,.08);padding:44p
         </div>
       </div>
 
-      <input type="hidden" name="_subject" value="Nouvelle demande d'étude — FinancementsPME.fr" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_next" value="https://financementspme.fr/merci-etude/" />
-      <input type="hidden" name="_url" value="https://financementspme.fr/" />
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+                              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
       <button type="submit" class="btn btn-primary" id="q-submit">
         <span class="q-submit-label">Lancer mon étude</span>
         <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -1760,6 +1756,38 @@ if(menuToggle && navHeader){
       navHeader.classList.remove('menu-open');
       menuToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+}
+
+// Envoi du formulaire vers la fonction Vercel
+const qualifierForm = document.getElementById('qualifier');
+if (qualifierForm) {
+  qualifierForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton = document.getElementById('q-submit');
+    const submitLabel = submitButton?.querySelector('.q-submit-label');
+    const errorBox = document.getElementById('q-error');
+
+    if (errorBox) errorBox.style.display = 'none';
+    if (submitButton) submitButton.disabled = true;
+    if (submitLabel) submitLabel.textContent = 'Envoi en cours…';
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(Object.fromEntries(new FormData(qualifierForm).entries()))
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.ok !== true) throw new Error(data.error || 'Erreur d’envoi');
+      window.location.href = '/merci-etude/';
+    } catch (error) {
+      console.error(error);
+      if (errorBox) errorBox.style.display = 'block';
+      if (submitButton) submitButton.disabled = false;
+      if (submitLabel) submitLabel.textContent = 'Lancer mon étude';
+    }
   });
 }
 
