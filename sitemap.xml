@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://financementspme.fr/</loc><lastmod>2026-09-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://financementspme.fr/solutions/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://financementspme.fr/media/</loc><lastmod>2026-09-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://financementspme.fr/media/</loc><lastmod>2026-10-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://financementspme.fr/contact/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://financementspme.fr/media/entreprise-rentable-manque-tresorerie/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://financementspme.fr/media/bfr-guide-complet/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -16,4 +16,9 @@
   <url><loc>https://financementspme.fr/media/dette-senior-apport-credit-vendeur-reprise/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://financementspme.fr/media/dette-senior-mezzanine-apport-acquisition/</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://financementspme.fr/media/refinancer-dette-avant-urgence/</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://financementspme.fr/media/barometre-financement-pme-octobre-2026/</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://financementspme.fr/media/covenants-bancaires-pme/</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://financementspme.fr/media/dette-nette-ebitda-ratio-levier/</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://financementspme.fr/media/caf-ebe-cash-flow-differences/</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://financementspme.fr/media/credit-bail-ou-emprunt-financer-equipement/</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
